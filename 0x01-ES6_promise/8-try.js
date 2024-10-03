@@ -6,6 +6,6 @@ export default function divideFunction(numerator, denominator) {
     }
     throw Error('cannot divide by 0');
   } catch (error) {
-    return error;
+    throw Error('cannot divide by 0');;
   }
 }
