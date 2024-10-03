@@ -7,7 +7,7 @@ export default function guardrail(mathFunction) {
     return arr;
   } catch (error) {
     const arr = [];
-    arr.push(error);
+    arr.push('Error: cannot divide by 0');
     arr.push('Guardrail was processed');
     return arr;
   }
