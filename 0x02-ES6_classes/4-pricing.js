@@ -18,10 +18,16 @@ export default class Pricing {
     return amount * conversionRate;
   }
 
+  /**
+   * @return {amount}
+   */
   get amount() {
     return this._amount;
   }
 
+  /**
+   * @param {amount} value
+   */
   set amount(amount) {
     if (!(amount instanceof Currency)) {
       throw new TypeError('currency must be a Currency');
@@ -29,10 +35,16 @@ export default class Pricing {
     this._amount = amount;
   }
 
+  /**
+   * @return {currency}
+   */
   get currency() {
     return this.currency;
   }
 
+  /**
+   * @param {currency} value
+   */
   set currency(currency) {
     if (typeof currency !== 'number') {
       throw new TypeError('amount must be a number');
