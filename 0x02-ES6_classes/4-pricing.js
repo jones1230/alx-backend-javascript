@@ -10,6 +10,12 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('conversionRate must be a number');
+    }
     return amount * conversionRate;
   }
 
@@ -18,6 +24,9 @@ export default class Pricing {
   }
 
   set amount(amount) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
     this._amount = amount;
   }
 
@@ -26,9 +35,16 @@ export default class Pricing {
   }
 
   set currency(currency) {
+    if (typeof currency !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
     this._currency = currency;
   }
 
+  /**
+    * Function combines and amount, currency name and currency code and returns
+    * @returns {string}
+    */
   displayFullPrice() {
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
