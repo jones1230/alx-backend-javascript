@@ -6,23 +6,33 @@ export default class Currency {
     this._name = name;
   }
 
-  displayFullCurrency() {
-    return `${this._name} (${this._code})`;
-  }
-
-  get getCode() {
+  get code() {
     return this._code;
   }
 
-  set setCode(code) {
+  /**
+   * @param {any} code
+   */
+  set code(code) {
     this._code = code;
   }
 
-  get getname() {
+  get name() {
     return this._name;
   }
 
-  set setName(name) {
+  /**
+   * @param {string} name
+   */
+  set name(name) {
     this._name = name;
+  }
+
+  /**
+   * Creates the full string representation of this Currency.
+   * @returns {String}
+   */
+  displayFullCurrency() {
+    return `${this._name} (${this._code})`;
   }
 }
