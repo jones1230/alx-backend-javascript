@@ -4,17 +4,18 @@
 /* eslint-disable array-callback-return */
 
 export default function cleanSet(set, startString) {
-  if (startString === '') return '';
-  const cleanSet = [...set];
-  return cleanSet.filter((val) => {
-    if (val.startsWith(startString)) return val;
-  }).map((value) => {
-    if (value.split(startString)[1] !== undefined) {
-      value = value.split(startString)[1];
+  const parts = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
+
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
     }
-    return value;
-  }).reduce((total, current) => {
-    total += `-${current}`;
-    return total;
-  });
+  }
+  return parts.join('-');
 }
