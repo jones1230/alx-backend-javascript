@@ -1,7 +1,8 @@
 process.stdout.write('Welcome to ALX, what is your name?\n');
 
 process.stdin.on('data', (data) => {
-  process.stdout.write(`Your name is: ${data}`);
+  const input = data.toString().trim();
+  process.stdout.write(`Your name is: ${input}\n`);
 });
 
 process.stdin.on('end', () => {
