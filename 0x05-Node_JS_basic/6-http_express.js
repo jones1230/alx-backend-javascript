@@ -18,7 +18,7 @@ const PORT = 1245;
  * @returns {undefined}
  */
 app.get('/', (req, res) => {
-  res.send('Hello ALX!');
+  res.send('Hello Holberton School!');
 });
 
 /**
